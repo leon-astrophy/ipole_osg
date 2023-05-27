@@ -2,8 +2,16 @@
 # parameter files for doing radiative transfer parameter searches
 #####################################################################
 
-# desired model intervals #
-model = 'Ma+0.94_w5' 
+# dump directory #
+dump_dir = "/home/leon.chan/sgra-sims/Ma+0.94_w5"
+
+# image directory #
+img_dir = "/home/leon.chan/sgra-imgs/Ma+0.94_w5"
+
+# figure directory #
+fig_dir = "/home/leon.chan/sgra-figs/Ma+0.94_w5"
+
+###########################################################
 
 #camera location along the polar direction#
 thetacam = [90, 0.1, 30, 60, 120, 150, 179.9]

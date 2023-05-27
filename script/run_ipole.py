@@ -23,10 +23,10 @@ def make_folder(dir_in):
 # base parameter, you can change these according to your task #
 
 # dump directory #
-dump_dir = "/home/leon.chan/sgra-sims/"+params.model
+dump_dir = params.dump_dir
 
 # image directory #
-img_dir = "/home/leon.chan/sgra-imgs/"+params.model
+img_dir = params.img_dir
 
 ################################################################################
 # section for munit #
@@ -73,7 +73,7 @@ for i in range (0, 1):#len(params.thetacam)):
         theta_in = params.thetacam[i]
 
         #submit ipole job#
-        call(['python3', '/home/leon.chan/ipole-osg-python/src/submit.py', 
+        call(['python3', '../src/submit.py', 
               str(dump_in), str(img_in), str(rlow_in), str(rhigh_in), str(munit_in), str(theta_in)])        
 
 ################################################################################

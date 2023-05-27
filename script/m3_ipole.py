@@ -26,13 +26,13 @@ def make_folder(dir_in):
 # base parameter, you can change these according to your task #
 
 # dump directory #
-dump_dir = "/home/leon.chan/sgra-sims/"+params.model
+dump_dir = params.dump_dir
 
 # image directory #
-img_dir = "/home/leon.chan/sgra-imgs/"+params.model
+img_dir = params.img_dir
 
 # figure directory #
-fig_dir = "/home/leon.chan/sgra-figs/"+params.model
+fig_dir = params.fig_dir
 
 ################################################################################
 # section for munit #
