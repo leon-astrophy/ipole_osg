@@ -1,49 +1,77 @@
+####################################################################
 # example.par -- ipole example parameter file for iharm problem
+####################################################################
 
-# Common
+# dump file directory #
 dump dump.h5
+
+# image outfile directory #
 outfile image.h5
-nx 400
-ny 400
+
+# Trace file directory #
+trace_outf trace.h5
+
+# Histogram file directory # 
+histo_outf histo.h5
+
+####################################################################
+# physical parameters
 
 # Emission 1=Pandya, 4=Dexter, others are debug/custom
 emission_type 4
 
-# M87 parameters
+# Black masses in solarmass #
 MBH 4.154e6
-dsource 8.178e3
-freqcgs 230.e9
-# M_unit scales the accretion rate to match a known object flux
-# These are example values
-# SANE:
-M_unit 3e26
-# MAD:
-#M_unit 6e24
 
-# e- Temperature, via the Rhigh model described 
+# Black hole distance in parsec #
+dsource 8.178e3
+
+# Emission frequency in Hz #
+freqcgs 230.e9 
+
+# M_unit scales the accretion rate to match a known object flux
+# These are example values: SANE = 3e26, MAD = 6e24
+M_unit 1e18
+
+# electronic temperature, via the Rhigh model described in Sag A* paper 5
 trat_small 1
 trat_large 20
-# Constant e- temperature ratio
+
+# Constant electron-ion temperature ratio, not used
 #tp_over_te 3
 
-# Adaptive res
+####################################################################
+# Camera option #
+
+# Adaptive resolution in radiative transfer
 # enable by setting a minimum "base" image size
+# currently disabled
 #nx_min 40
 #ny_min 40
 refine_abs = 2e-2
 refine_rel = 1e-2
 refine_cut = 0
 
-# Camera
+# Camera distance ?
 rcam 1000
-# Values in degrees
+
+# Camera viewing angles, values in degrees
 thetacam 17
 phicam 0
+
+# Rotate your camera
 rotcam 0
 
-# FOV from Earth
+# FOV of black hole from Earth, default 160au
 fovx_dsource 200
 fovy_dsource 200
+
+# resolution of the camera #
+nx 400
+ny 400
+
+####################################################################
+# Other option #
 
 # Geodesic accuracy parameters
 #eps 0.01
@@ -53,15 +81,20 @@ fovy_dsource 200
 # Convention for EVPA defining stokes Q,U:
 # 0 is measured East of North, 1 is North of West
 qu_conv 0
+
 # Don't produce an output file
 quench_output 0
+
 # Add a .ppm image of the unpolarized flux
 add_ppm 0
+
 # Only calculate the unpolarized image
 only_unpolarized 1
+
 # 1 to emit only for th>PI/2, 2 for other hemisphere
 # 0 emits everywhere
 counterjet 0
+
 # Offset for each geodesic in pixels, used to prevent
 # overtraining ML models to pixel locations
 xoff 0
@@ -70,10 +103,18 @@ yoff 0
 # Path trace -- save emissivities & local state
 # for every step along a geodesic, or several
 trace 0
+
 # Pixel to trace i,j (rightward from left, upward from bottom)
 #trace_i 40
 #trace_j 40
+
 # Or trace every N pixels in each direction
 trace_stride 0
-# Trace file name
-trace_outf trace.h5
+
+# output histogram of emission origin? #
+histo 0
+
+# my patch, only output luminosity #
+only_luminosity 1
+
+####################################################################
